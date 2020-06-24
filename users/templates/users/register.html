@@ -1,0 +1,31 @@
+{% extends 'users/base.html' %}
+
+<!-- Title block -->
+{% block title %} Django Auth | Register {% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<div class="container">
+  <div class="card bg-light mt-5 mx-auto" style="max-width: 400px;">
+    <h2 class="card-title text-center mt-3 mb-0">Register</h2>
+    <div class="card-body">
+      <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %} {% for field in form %}
+        <div class="form-group">
+          {{ field.label_tag }} {{ field }} {{ field.errors }}
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary center">Register</button>
+      </form>
+
+      <div class="form-footer text-center mt-3">
+        <span class="text-muted"
+          >Already have an account ?
+          <a href="#"> Login</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
