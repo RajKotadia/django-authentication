@@ -122,3 +122,6 @@ STATIC_URL = '/static/'
 
 # on successful login
 LOGIN_REDIRECT_URL = 'home'
+
+# on successful logout
+LOGOUT_REDIRECT_URL = 'home'

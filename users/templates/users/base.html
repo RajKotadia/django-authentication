@@ -52,12 +52,19 @@
             <li class="nav-item home-link">
               <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
+
+            {% if user.is_authenticated %}
+            <li class="nav-item logout-link">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
             <li class="nav-item register-link">
               <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
             <li class="nav-item login-link">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
