@@ -1,28 +1,28 @@
 {% extends 'users/base.html' %}
 
 <!-- Title block -->
-{% block title %} Django Auth | Register {% endblock %}
+{% block title %} Django Auth | Login {% endblock %}
 
 <!-- Content block -->
 {% block content %}
 <div class="container">
   <div class="card bg-light mt-5 mx-auto" style="max-width: 400px;">
-    <h2 class="card-title text-center mt-3 mb-0">Register</h2>
+    <h2 class="card-title text-center mt-3 mb-0">Login</h2>
     <div class="card-body">
-      <form action="{% url 'register' %}" method="POST">
+      <form action="{% url 'login' %}" method="POST">
         {% csrf_token %} {% for field in form %}
         <div class="form-group">
-          {{ field.label_tag }} {{ field }} {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
         </div>
-        {% endfor %}
+        {% endfor %} {{ form.non_field_errors }}
 
-        <button type="submit" class="btn btn-primary center">Register</button>
+        <button type="submit" class="btn btn-primary center">Login</button>
       </form>
 
       <div class="form-footer text-center mt-3">
         <span class="text-muted"
           >Already have an account ?
-          <a href="{% url 'login' %}"> Login</a>
+          <a href="{% url 'register' %}"> Register</a>
         </span>
       </div>
     </div>
