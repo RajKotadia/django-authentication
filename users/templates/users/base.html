@@ -27,7 +27,7 @@
       }
 
       .card {
-        box-shadow: 3px 3px 8px #666;
+        box-shadow: 2px 2px 8px #777;
       }
     </style>
   </head>
@@ -54,6 +54,10 @@
             </li>
 
             {% if user.is_authenticated %}
+            <li class="nav-item profile-link">
+              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+
             <li class="nav-item logout-link">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>

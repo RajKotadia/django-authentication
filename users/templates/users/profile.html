@@ -1,0 +1,31 @@
+{% extends 'users/base.html' %}
+
+<!-- Title block -->
+{% block title %} Django Auth | Profile - {{user.username}} {% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<main class="container">
+  <!-- Page content -->
+  <h2 class="mt-3">User Profile page</h2>
+  <div class="card mt-3 mb-4">
+    <div class="card-body">
+      <p class="mb-0">Welcome, <strong>@{{ user.username }}</strong> !</p>
+      <p class="mb-0">Email - <strong>{{ user.email }}</strong></p>
+    </div>
+  </div>
+  <p>
+    This page can only be accessed by anyone who is authenticated. If a user
+    tries to access it directly without authentication, the system will redirect
+    the user to the login page.
+  </p>
+</main>
+{% endblock %}
+
+<!-- Script block -->
+{% block script %}
+<script>
+  const listItem = document.querySelector('.profile-link');
+  listItem.classList.add('active');
+</script>
+{% endblock %}

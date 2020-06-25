@@ -121,7 +121,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # on successful login
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'profile'
+
+# on accessing a protected view without authentication
+LOGIN_URL = 'login'
 
 # on successful logout
 LOGOUT_REDIRECT_URL = 'home'
